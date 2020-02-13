@@ -1,56 +1,50 @@
 import React from 'react'
 import Link from 'next/link'
+import styled from 'styled-components'
 
-const links = [
-  { href: 'https://zeit.co/now', label: 'ZEIT' },
-  { href: 'https://github.com/zeit/next.js', label: 'GitHub' },
-].map(link => ({
-  ...link,
-  key: `nav-link-${link.href}-${link.label}`,
-}))
+const Container = styled.nav`
+display: flex;
+justify-content: flex-start;
+border: 1px solid #001f5f;
+`
+const Content = styled.div`
+display: flex;
+height: 100%;
+width: 60%;
+justify-content: space-between;
+
+div{
+  display: flex;
+  width: 120px;
+  justify-content:space-between;
+  align-items: center;
+}
+
+a{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #001f5f;
+  text-decoration: none;
+}
+
+img{
+  align-self:center;
+}
+`
 
 const Nav = () => (
-  <nav>
-    <ul>
-      <li>
+  <Container>'
+  <Content>
+    <div>
         <Link href="/">
           <a>Home</a>
         </Link>
-      </li>
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <a href={href}>{label}</a>
-        </li>
-      ))}
-    </ul>
-
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
-  </nav>
+        <Link href="/contact">
+          <a>Contact</a>
+        </Link>
+    </div>
+    <img src={'KS30_login.png'}/>
+    </Content>
+  </Container>
 )
 
 export default Nav
